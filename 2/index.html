@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<title>Montar pedido</title>
+		<link rel="stylesheet" href="../css/css.css">
+	</head>
+	<body>
+		<div id="wrap">
+			<header>
+				<h1>Quantos checkouts a loja possui?</h1>
+			</header>
+			<div id="content">
+				<div id="quantidade-container" class="container">
+					<div id="display" class="is-disabled"></div>
+					<div id="keypad-container">
+						<div id="keypad" class="grid-container">
+							<div id="k1" class="grid-item num">1</div>
+							<div id="k2" class="grid-item num">2</div>
+							<div id="k3" class="grid-item num">3</div>
+							<div id="k4" class="grid-item num">4</div>
+							<div id="k5" class="grid-item num">5</div>
+							<div id="k6" class="grid-item num">6</div>
+							<div id="k7" class="grid-item num">7</div>
+							<div id="k8" class="grid-item num">8</div>
+							<div id="k9" class="grid-item num">9</div>
+							<div id="k0" class="grid-item num">0</div>
+							<div id="kd" class="grid-item is-disabled">Limpar</div>
+						</div>
+					</div>
+
+					<p class="actions">
+						<a id="next" class="button is-disabled">Avançar &rarr;</a>
+					</p>
+				</div>
+			</div>
+
+			<div class="container">
+				<nav>
+					<a href="../1" class="back">&larr; Voltar</a>
+						<br>
+						<a href="../" id="inicio">&larr; Início</a>
+				</nav>
+			</div>
+		</div>
+
+		<script>
+			let placeholder = 'Digite a quantidade'
+			let display = document.querySelector('#display');
+			let next = document.querySelector('#next');
+			let kd = document.querySelector('#kd');
+			let el = document.querySelector('#next');
+			let keys = document.querySelectorAll('.num');
+
+			keys.forEach(function(elem){
+				elem.addEventListener('click', function() {
+					if (display.innerText == placeholder) {
+						display.innerText = this.innerText;
+					} else {
+						display.innerText = display.innerText + this.innerText;
+					}
+					next.classList.remove('is-disabled');
+					kd.classList.remove('is-disabled');
+					display.classList.remove('is-disabled');
+				})
+			});
+
+			if (display.innerText == '') {
+				display.innerText = placeholder
+			}
+
+			next.addEventListener('click', function(){
+				if (!this.classList.contains('is-disabled')) {
+					window.location = '../3';
+				}
+			});
+
+			kd.addEventListener('click', function(){
+				if (!this.classList.contains('is-disabled')) {
+					display.innerText = placeholder
+					next.classList.add('is-disabled');
+					this.classList.add('is-disabled');
+					display.classList.add('is-disabled');
+				}
+			});
+
+			el.addEventListener('click', function() {
+				var qtd = document.querySelector('#display').innerText;
+				console.log(qtd);
+				localStorage.setItem("quantidade", qtd);
+			});
+		</script>
+	</body>
+</html>

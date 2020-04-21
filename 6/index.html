@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<title>Seu pedido</title>
+		<link rel="stylesheet" href="../css/css.css">
+	</head>
+	<body>
+		<div id="wrap">
+			<header>
+				<h1>Seu pedido</h1>
+			</header>
+			<div id="content">
+				<div id="pedido">
+					<p>
+						<b>Argumento:</b><br>
+						A categoria de pilha é uma categoria que os consumidores não vão comprar mais quantidades de pilha por estar em promoção, vão comprar só o que precisa. Logo, para o varejista ganhar mais com a categoria ele precisa investir na pilha de maior valor agregado.
+					</p>
+					<p>
+						<b>Proposta:</b><br>
+							Com isso em vista, o valor de pedido sugerido para que o varejista possa estar bem abastecido nos checkouts é de <b><span id="proposta"></span></b>.
+					</p>
+					<p>
+						<b>Produtos indicados para lojas <i>Super 9+:</i></b>
+					</p>
+
+					<p class="indicados">
+						<img src="../img/aaa-c2.jpeg" alt="">
+						<img src="../img/aaa-c4.jpeg" alt="">
+						<img src="../img/aa-c2.jpeg" alt="">
+						<img src="../img/aa-c4.jpeg" alt="">
+						<img src="../img/2032.jpeg" alt="">
+						<img src="../img/d-c2.jpeg" alt="">
+						<img src="../img/mn21.jpeg" alt="">
+						<img src="../img/9v-c1.jpeg" alt="">
+						<img src="../img/c-c2.jpeg" alt="">
+					</p>
+
+					<p>
+						<b>AAA C/2 - 20%</b> do pedido (<span class="percent" data-amount="20"></span>).
+					</p>
+					<p>
+						<b>AAA C/4 - 15%</b> do pedido (<span class="percent" data-amount="15"></span>).
+					</p>
+					<p>
+						<b>AA C/2 - 20%</b> do pedido (<span class="percent" data-amount="20"></span>).
+					</p>
+					<p>
+						<b>AA C/4 - 15%</b> do pedido (<span class="percent" data-amount="15"></span>).
+					</p>
+					<p>
+						<b>2032 - 10%</b> do pedido (<span class="percent" data-amount="10"></span>).
+					</p>
+					<p>
+						<b>D - 5%</b> do pedido (<span class="percent" data-amount="5"></span>).
+					</p>
+					<p>
+						<b>MN21 - 5%</b> do pedido (<span class="percent" data-amount="5"></span>).
+					</p>
+					<p>
+						<b>9V - 5%</b> do pedido (<span class="percent" data-amount="5"></span>).
+					</p>
+					<p>
+						<b>C - 5%</b> do pedido (<span class="percent" data-amount="5"></span>).
+					</p>
+					<p class="actions">
+						<a href="../1" class="new">Montar novo pedido</a>
+					</p>
+				</div>
+
+				<div class="container">
+					<nav>
+						<a href="../3" class="back">&larr; Voltar</a>
+						<br>
+						<a href="../" id="inicio">&larr; Início</a>
+					</nav>
+				</div>
+
+				<div class="container">
+					<div id="more">
+						<b>Mais argumentos:</b>
+						
+						<ul>
+							<li>
+								A categoria de Zinco está em queda enquanto a alcalina cresce. Hoje, a categoria de alcalina representa quase 70% do mercado.
+							</li>
+							<li>
+								A pilha Duracell é a melhor pilha do mercado e comparando com as pilhas de Zinco é uma economia financeira considerável.
+							</li>
+							<li>
+								Duracell é a líder da categoria.
+							</li>
+							<li>
+								É importante dar opção ao cliente tendo sempre presente no varejo a marca mais importante da categoria e de maior valor agregado assim como acontecem em outras categorias do mercado.
+							</li>
+							<li>
+								Pilha é um produto de lembrança e por isso precisa estar visível no checkout ou entrada de loja.
+							</li>
+							<li>
+								Um consumidor usa 7 pilhas ao ano enquanto usa 2 escovas de dente.
+							</li>
+							<li>
+								Dentre os produtos presentes no Checkout pilha é um dos mais caros com maior margem, aumentando seus lucros.
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			var qtd = localStorage.getItem('quantidade');
+			var formatter = new Intl.NumberFormat('pt-BR', {
+			  style: 'currency',
+			  currency: 'BRL',
+			});
+			var proposta = (qtd * 300);
+			document.querySelector('span').innerHTML = qtd;
+			document.querySelector('#proposta').innerHTML = formatter.format(proposta);
+
+			var suggestions = document.querySelectorAll('.percent');
+			suggestions.forEach(function(elem){
+				var amount = elem.dataset.amount;
+				var suggestion = formatter.format((proposta * amount) / 100);
+				elem.innerText = suggestion;
+			});
+		</script>
+	</body>
+</html>
