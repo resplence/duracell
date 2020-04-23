@@ -215,7 +215,7 @@ p.indicados {
 }
 p.indicados img {
 	display: table-cell;
-	height: 14rem;
+	height: 11.25rem;
 	-width: 50%;
 	float: left;
 }
