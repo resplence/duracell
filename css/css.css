@@ -99,6 +99,14 @@ input[type="number"] {
 	color: #fff;
 }
 
+#loja-container ul {
+	list-style: none;
+}
+
+#more ul {
+	list-style: disc; 
+}
+
 #loja-container .button-group .button {
 	margin: 8px 0;
 }
