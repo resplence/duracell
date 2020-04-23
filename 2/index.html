@@ -55,13 +55,19 @@
 			keys.forEach(function(elem){
 				elem.addEventListener('click', function() {
 					if (display.innerText == placeholder) {
-						display.innerText = this.innerText;
+						if (this.innerText == 0) {
+						} else {
+							display.innerText = this.innerText;
+							next.classList.remove('is-disabled');
+							kd.classList.remove('is-disabled');
+							display.classList.remove('is-disabled');
+						}
 					} else {
 						display.innerText = display.innerText + this.innerText;
+						next.classList.remove('is-disabled');
+						kd.classList.remove('is-disabled');
+						display.classList.remove('is-disabled');
 					}
-					next.classList.remove('is-disabled');
-					kd.classList.remove('is-disabled');
-					display.classList.remove('is-disabled');
 				})
 			});
 
